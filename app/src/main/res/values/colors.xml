@@ -8,8 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="black_text">#303030</color>
+    <color name="grey_text">#6A6A6A</color>
     <color name="curious_blue">#28ADDE</color>
     <color name="eastern_blue">#1E8BB2</color>
     <color name="carnation">#FF505F</color>
     <color name="egg_blue">#00D9CB</color>
+    <color name="grey_button">#B8B8B8</color>
 </resources>

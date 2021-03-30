@@ -1,15 +1,13 @@
 package com.example.movist.services.model.movie
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
-@JsonClass(generateAdapter = true)
 data class Movie(
     val dates: Dates,
     val page: Int,
     val results: List<Result>,
-    @Json(name = "total_pages")
+    @SerializedName("total_pages")
     val totalPages: Int,
-    @Json(name = "total_results")
+    @SerializedName("total_results")
     val totalResults: Int
 )

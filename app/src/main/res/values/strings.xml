@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Movist</string>
     <string name="title_application_logo">Application Logo</string>
-
-    <string name="token">eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkOGFjMGE3YTQyNTE2MGU3ZmViZDM1MTQyOTM5OWI2MCIsInN1YiI6IjVmOTkzY2UwOWE5ZjlhMDAzNjdkNjU0NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ncp51xkjyZSGqwW5T7JdrkFFNDUqPuKiEHOrmsLN_fw</string>
+    <string name="title_goto_fav_mov">Button goto menu favorite movie</string>
+    <string name="title_category">Category</string>
+    <string name="title_movie_image">Movie Image</string>
+    <string name="dummy_date">xx-xx-xxxxx</string>
+    <string name="dummy_title">Movie Title</string>
+    <string name="dummy_description">Movie Description</string>
+    <string name="title_button_love_favorite">Button love favorite</string>
 </resources>
