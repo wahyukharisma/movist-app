@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Movist</string>
     <string name="title_application_logo">Application Logo</string>
+
+    <string name="token">eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkOGFjMGE3YTQyNTE2MGU3ZmViZDM1MTQyOTM5OWI2MCIsInN1YiI6IjVmOTkzY2UwOWE5ZjlhMDAzNjdkNjU0NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ncp51xkjyZSGqwW5T7JdrkFFNDUqPuKiEHOrmsLN_fw</string>
 </resources>
