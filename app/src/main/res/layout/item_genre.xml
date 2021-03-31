@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/margin_12"
+    android:paddingVertical="@dimen/margin_4"
+    android:layout_marginEnd="12dp"
+    android:layout_marginBottom="10dp"
+    android:id="@+id/fb_item"
+    android:background="@drawable/bg_button_blue_rounded_stroke_5dp">
+
+    <TextView
+        android:id="@+id/tv_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dummy_genre"
+        android:textColor="@color/black_text"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="@dimen/text_normal"/>
+
+</RelativeLayout>

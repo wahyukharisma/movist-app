@@ -9,12 +9,14 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.movist.R
 import com.example.movist.databinding.ItemMovieBinding
 import com.example.movist.services.model.movie.Result
+import com.example.movist.util.DateFormatParse
 import com.example.movist.util.remove
 import com.example.movist.util.show
 import timber.log.Timber
 
 
-class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
+class MovieListAdapter(var onItemClickListener: OnMovieItemClickListener)
+    : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
 
     companion object {
         const val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
@@ -67,13 +69,17 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
 
                 tvTitle.text = item.title
                 tvDescription.text = item.overview
-                tvDate.text = item.releaseDate
+                tvDate.text = DateFormatParse.dateWithDay(item.releaseDate)
 
                 Glide.with(itemView.context)
                     .load(BASE_IMAGE_URL + item.posterPath)
                     .transform(RoundedCorners(10))
                     .placeholder(R.drawable.bg_button_grey_rounded_5dp)
                     .into(ivPoster)
+
+                cvItem.setOnClickListener {
+                    onItemClickListener.onItemClick(item.id)
+                }
             }
         }
     }
@@ -82,5 +88,9 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
       val binding = ItemMovieBinding.bind(view)
+    }
+
+    interface OnMovieItemClickListener {
+        fun onItemClick(id : Int)
     }
 }

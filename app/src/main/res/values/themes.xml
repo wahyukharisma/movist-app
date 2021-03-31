@@ -18,4 +18,19 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/text_h2</item>
     </style>
+
+    <style name="DefaultMenuDetail" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textColor">@color/black_text</item>
+        <item name="android:textSize">@dimen/text_h3</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="DefaultContentDetail" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/black_text</item>
+        <item name="android:textSize">@dimen/text_normal</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
 </resources>

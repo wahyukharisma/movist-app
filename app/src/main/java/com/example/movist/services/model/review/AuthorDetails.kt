@@ -6,6 +6,6 @@ data class AuthorDetails(
     @SerializedName("avatar_path")
     val avatarPath: String,
     val name: String,
-    val rating: Any,
+    val rating: Any?,
     val username: String
 )
