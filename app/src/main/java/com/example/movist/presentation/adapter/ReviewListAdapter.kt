@@ -20,6 +20,11 @@ class ReviewListAdapter(private val onReviewClickListener : OnReviewClickListene
         notifyDataSetChanged()
     }
 
+    fun removeAll(){
+        this.items.clear()
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(LayoutInflater.from(parent.context).inflate(
         R.layout.item_review, parent, false))

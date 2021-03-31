@@ -11,6 +11,7 @@ import com.example.movist.databinding.ActivityDashboardBinding
 import com.example.movist.databinding.DashboardShimmerBinding
 import com.example.movist.presentation.adapter.MovieListAdapter
 import com.example.movist.presentation.view.detail.DetailActivity
+import com.example.movist.presentation.view.favorite.FavoriteActivity
 import com.example.movist.util.ResultOfNetwork
 import com.example.movist.util.remove
 import com.example.movist.util.show
@@ -58,6 +59,10 @@ class DashboardActivity : AppCompatActivity() {
 
             btnCategory.setOnClickListener {
                 bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+            }
+
+            ibFavorite.setOnClickListener {
+                startActivity(Intent(this@DashboardActivity, FavoriteActivity::class.java))
             }
 
             _viewModel.loadData.observe(this@DashboardActivity,{value ->
