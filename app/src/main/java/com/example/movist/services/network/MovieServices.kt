@@ -31,12 +31,12 @@ interface MovieServices {
     @GET("movie/{movie_id}")
     suspend fun getDetail(
         @Header("Authorization") bearer: String,
-        @Path("movie_id") movieId: String,
+        @Path("movie_id") movieId: Int,
     ): Detail
 
     @GET("movie/{movie_id}/reviews")
     suspend fun getReview(
         @Header("Authorization") bearer: String,
-        @Path("movie_id") movieId: String,
+        @Path("movie_id") movieId: Int,
     ): Review
 }

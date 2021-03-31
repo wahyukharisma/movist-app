@@ -32,7 +32,7 @@ constructor(
     /**
      * Get list of popular movies from API
      *
-     * Output : Result of response Movie object handle using sealed class
+     * Output : Result of response [Movie] object handle using sealed class
      *
      */
     fun getPopularMovies(){
@@ -50,7 +50,7 @@ constructor(
     /**
      * Get list of now playing movies from API
      *
-     * Output : Result of response Movie object handle using sealed class
+     * Output : Result of response [Movie] object handle using sealed class
      *
      */
     fun getNowPlayingMovies(){
@@ -68,7 +68,7 @@ constructor(
     /**
      * Get list of upcoming movies from API
      *
-     * Output : Result of response Movie object handle using sealed class
+     * Output : Result of response [Movie] object handle using sealed class
      *
      */
     fun getUpcomingMovies(){
@@ -86,7 +86,7 @@ constructor(
     /**
      * Get list of top rated movies from API
      *
-     * Output : Result of response Movie object handle using sealed class
+     * Output : Result of response [Movie] object handle using sealed class
      *
      */
     fun getTopRatedMovies(){
@@ -104,7 +104,7 @@ constructor(
     /**
      * Parse throwable response into repository value
      *
-     * Example Output : [HTTP] error response 404 please retry
+     * Example Output : HTTP error response 404 please retry
      */
     private fun throwableCase(throwable: Throwable){
         when(throwable){

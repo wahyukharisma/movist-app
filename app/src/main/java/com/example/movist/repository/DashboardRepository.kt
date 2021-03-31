@@ -51,7 +51,7 @@ class MovieRepository(
         }
     }
 
-    suspend fun getDetailMovie(token: String, id: String){
+    suspend fun getDetailMovie(token: String, id: Int){
         withContext(Dispatchers.IO){
             detail.postValue(ResultOfNetwork.Success(
                 movieServices.getDetail(token, id)
@@ -59,7 +59,7 @@ class MovieRepository(
         }
     }
 
-    suspend fun getReviewMovie(token: String, id: String){
+    suspend fun getReviewMovie(token: String, id: Int){
         withContext(Dispatchers.IO){
             review.postValue(ResultOfNetwork.Success(
                 movieServices.getReview(token, id)

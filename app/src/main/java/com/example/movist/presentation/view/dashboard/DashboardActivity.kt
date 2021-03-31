@@ -1,5 +1,6 @@
 package com.example.movist.presentation.view.dashboard
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -9,6 +10,7 @@ import com.example.movist.R
 import com.example.movist.databinding.ActivityDashboardBinding
 import com.example.movist.databinding.DashboardShimmerBinding
 import com.example.movist.presentation.adapter.MovieListAdapter
+import com.example.movist.presentation.view.detail.DetailActivity
 import com.example.movist.util.ResultOfNetwork
 import com.example.movist.util.remove
 import com.example.movist.util.show
@@ -35,7 +37,12 @@ class DashboardActivity : AppCompatActivity() {
 
         _viewModel.getPopularMovies()
         isLoadData(true)
-        _adapter = MovieListAdapter()
+        _adapter = MovieListAdapter(object : MovieListAdapter.OnMovieItemClickListener{
+            override fun onItemClick(id: Int) {
+                startActivity(Intent(this@DashboardActivity, DetailActivity::class.java)
+                    .putExtra("movie_id",id))
+            }
+        })
 
         with(_binding){
             rvContent.adapter = _adapter
@@ -43,21 +50,10 @@ class DashboardActivity : AppCompatActivity() {
             with(bsLayout){
                 bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
 
-                tvPopular.setOnClickListener {
-                    categorySelected(0)
-                }
-
-                tvUpcoming.setOnClickListener {
-                    categorySelected(1)
-                }
-
-                tvTopRated.setOnClickListener {
-                    categorySelected(2)
-                }
-
-                tvNowPlaying.setOnClickListener {
-                    categorySelected(3)
-                }
+                tvPopular.setOnClickListener { categorySelected(0) }
+                tvUpcoming.setOnClickListener { categorySelected(1) }
+                tvTopRated.setOnClickListener { categorySelected(2) }
+                tvNowPlaying.setOnClickListener { categorySelected(3) }
             }
 
             btnCategory.setOnClickListener {

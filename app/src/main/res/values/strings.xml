@@ -14,4 +14,20 @@
     <string name="title_upcoming">Upcoming</string>
     <string name="title_top_rated">Top Rated</string>
     <string name="title_now_playing">Now Playing</string>
+    <string name="title_banner_image">Banner Image</string>
+    <string name="title_button_back">Button back</string>
+    <string name="title_movie_caption">Movie Caption</string>
+    <string name="title_genres">Genres</string>
+    <string name="title_relase_date">Relase Date</string>
+    <string name="title_runtime">Runtime</string>
+    <string name="title_show_all">Show All</string>
+    <string name="title_reviews">Reviews</string>
+    <string name="title_overview">Overview</string>
+    <string name="title_username">Username</string>
+    <string name="dummy_rating">0.0</string>
+    <string name="title_icon_star">Icon star</string>
+    <string name="title_icon_profile">Icon profile</string>
+    <string name="dummy_comments">Comments</string>
+    <string name="title_there_is_no_review_yet">There is no review yet</string>
+    <string name="dummy_genre">Genre</string>
 </resources>
