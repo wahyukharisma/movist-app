@@ -1,81 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.view.dashboard.DashboardActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tb_root"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_content"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/curious_blue"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="@color/white" >
-        <RelativeLayout
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tb_root"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical">
-            <TextView
+            android:layout_height="50dp"
+            android:background="@color/curious_blue"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:titleTextColor="@color/white" >
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                style="@style/DefaultTopBar"
-                android:layout_toStartOf="@id/ib_favorite"/>
-            <ImageButton
-                android:id="@+id/ib_favorite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:contentDescription="@string/title_goto_fav_mov"
-                android:src="@drawable/ic_love_menu"
-                android:background="@color/curious_blue"
-                android:layout_marginEnd="@dimen/margin_16"/>
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    style="@style/DefaultTopBar"
+                    android:layout_toStartOf="@id/ib_favorite"/>
+                <ImageButton
+                    android:id="@+id/ib_favorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="@string/title_goto_fav_mov"
+                    android:src="@drawable/ic_love_menu"
+                    android:background="@color/curious_blue"
+                    android:layout_marginEnd="@dimen/margin_16"/>
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <include layout="@layout/dashboard_shimmer"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/tb_root"
+            app:layout_constraintBottom_toTopOf="@id/rl_fixedButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/margin_16"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_fixedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="20dp"
+            android:background="@color/white"
+            android:elevation="10dp">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_category"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_button_grey_rounded_5dp"
+                android:fontFamily="@font/poppins_regular"
+                android:shadowColor="@color/black"
+                android:text="@string/title_category"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_h2"
+                android:enabled="false"/>
         </RelativeLayout>
-    </androidx.appcompat.widget.Toolbar>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <include layout="@layout/dashboard_shimmer"/>
+    <include
+        android:id="@+id/bs_layout"
+        layout="@layout/fragment_bottom_sheet"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_content"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/tb_root"
-        app:layout_constraintBottom_toTopOf="@id/rl_fixedButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="@dimen/margin_16"
-        android:layout_marginVertical="@dimen/margin_16"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
-    <RelativeLayout
-        android:id="@+id/rl_fixedButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="20dp"
-        android:background="@color/white"
-        android:elevation="10dp">
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_apply"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_button_grey_rounded_5dp"
-            android:fontFamily="@font/poppins_regular"
-            android:shadowColor="@color/black"
-            android:text="@string/title_category"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_h2"
-            android:enabled="false"/>
-    </RelativeLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

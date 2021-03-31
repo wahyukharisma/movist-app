@@ -58,7 +58,6 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder){
             val item = items[position]
-            Timber.d("Result -> ${item.title}")
             with(binding){
                 if(isDefault){
                     ibFavorite.remove()

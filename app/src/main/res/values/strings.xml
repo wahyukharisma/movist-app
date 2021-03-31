@@ -8,4 +8,10 @@
     <string name="dummy_title">Movie Title</string>
     <string name="dummy_description">Movie Description</string>
     <string name="title_button_love_favorite">Button love favorite</string>
+    <string name="title_line_bottom_sheet">Line Bottom Sheet</string>
+    <string name="title_select_category">Select Category</string>
+    <string name="title_popular">Popular</string>
+    <string name="title_upcoming">Upcoming</string>
+    <string name="title_top_rated">Top Rated</string>
+    <string name="title_now_playing">Now Playing</string>
 </resources>

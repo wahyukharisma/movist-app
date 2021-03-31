@@ -22,9 +22,11 @@ constructor(
     @Named("token") private val token : String
 ) : ViewModel() {
     val movies : LiveData<ResultOfNetwork<Movie>>
+    val loadData : LiveData<Boolean>
 
     init {
         this.movies = repository.movies
+        this.loadData = repository.loadData
     }
 
     /**
@@ -37,7 +39,9 @@ constructor(
         viewModelScope.launch {
             try{
                 repository.getPopularMovies(token)
+                repository.loadData.postValue(false)
             }catch (throwable: Throwable){
+                repository.loadData.postValue(false)
                 throwableCase(throwable)
             }
         }
@@ -52,8 +56,10 @@ constructor(
     fun getNowPlayingMovies(){
         viewModelScope.launch {
             try{
-                repository.getPopularMovies(token)
+                repository.getNowPlayingMovies(token)
+                repository.loadData.postValue(false)
             }catch (throwable: Throwable){
+                repository.loadData.postValue(false)
                 throwableCase(throwable)
             }
         }
@@ -68,8 +74,10 @@ constructor(
     fun getUpcomingMovies(){
         viewModelScope.launch {
             try{
-                repository.getPopularMovies(token)
+                repository.getUpcomingMovies(token)
+                repository.loadData.postValue(false)
             }catch (throwable: Throwable){
+                repository.loadData.postValue(false)
                 throwableCase(throwable)
             }
         }
@@ -84,8 +92,10 @@ constructor(
     fun getTopRatedMovies(){
         viewModelScope.launch {
             try{
-                repository.getPopularMovies(token)
+                repository.getTopRatedMovies(token)
+                repository.loadData.postValue(false)
             }catch (throwable: Throwable){
+                repository.loadData.postValue(false)
                 throwableCase(throwable)
             }
         }

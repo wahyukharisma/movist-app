@@ -16,8 +16,10 @@ class MovieRepository(
     val movies = MutableLiveData<ResultOfNetwork<Movie>>()
     val detail = MutableLiveData<ResultOfNetwork<Detail>>()
     val review = MutableLiveData<ResultOfNetwork<Review>>()
+    val loadData = MutableLiveData<Boolean>()
 
     suspend fun getPopularMovies(token: String){
+        loadData.postValue(true)
         withContext(Dispatchers.IO){
             movies.postValue(ResultOfNetwork.Success(
                 movieServices.getPopular(token)
