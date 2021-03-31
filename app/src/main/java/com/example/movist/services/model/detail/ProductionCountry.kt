@@ -1,11 +1,9 @@
 package com.example.movist.services.model.detail
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import com.google.gson.annotations.SerializedName
 
-@JsonClass(generateAdapter = true)
 data class ProductionCountry(
-    @Json(name = "iso_3166_1")
+    @SerializedName("iso_3166_1")
     val iso: String,
     val name: String
 )

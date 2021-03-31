@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Movist">
         <!-- activity -->
-        <activity android:name=".presentation.view.dashboard.MainActivity"
+        <activity android:name=".presentation.view.dashboard.DashboardActivity"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".presentation.view.splashScreen.SplashScreenActivity">
