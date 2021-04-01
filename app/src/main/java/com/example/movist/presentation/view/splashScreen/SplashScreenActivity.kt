@@ -17,6 +17,7 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(view)
 
         val r = Runnable {
+            finish()
             startActivity(Intent(this, DashboardActivity::class.java))
         }
 

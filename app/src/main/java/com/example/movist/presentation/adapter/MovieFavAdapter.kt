@@ -51,6 +51,10 @@ class MovieFavAdapter(private val onMovieClickListener : OnMovieClickListener)
                     onMovieClickListener.removeMovie(item, items.size)
                     removeSingle(item)
                 }
+
+                cvItem.setOnClickListener {
+                    onMovieClickListener.onItemClick(item.movieId)
+                }
             }
         }
     }
@@ -63,5 +67,6 @@ class MovieFavAdapter(private val onMovieClickListener : OnMovieClickListener)
 
     interface OnMovieClickListener{
         fun removeMovie(movie: MovieFavorite, size : Int)
+        fun onItemClick(id : Int)
     }
 }

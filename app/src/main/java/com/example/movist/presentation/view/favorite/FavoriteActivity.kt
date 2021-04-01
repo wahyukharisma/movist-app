@@ -1,10 +1,12 @@
 package com.example.movist.presentation.view.favorite
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movist.databinding.ActivityFavoriteMoviesBinding
 import com.example.movist.presentation.adapter.MovieFavAdapter
+import com.example.movist.presentation.view.detail.DetailActivity
 import com.example.movist.services.storage.entities.MovieFavorite
 import com.example.movist.util.remove
 import com.example.movist.util.show
@@ -20,6 +22,11 @@ class FavoriteActivity : AppCompatActivity() {
     private val _viewModel : FavoriteViewModel by viewModels()
 
     private var size = 0
+
+    override fun onResume() {
+        super.onResume()
+        _viewModel.getFavMovie()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +46,11 @@ class FavoriteActivity : AppCompatActivity() {
                     _viewModel.removeFavMovie(movie)
                     size = mSize
                 }
+
+                override fun onItemClick(id: Int) {
+                    startActivity(Intent(this@FavoriteActivity, DetailActivity::class.java)
+                            .putExtra("movie_id",id))
+                }
             })
 
             ibTrash.setOnClickListener {
@@ -48,10 +60,15 @@ class FavoriteActivity : AppCompatActivity() {
             rvContent.adapter = _adapter
 
             _viewModel.movies.observe(this@FavoriteActivity,{ data ->
+                _adapter.removeAll()
+
                 if(data.isNotEmpty()){
                     clEmptyFavorite.remove()
                     ibTrash.isEnabled = true
                     _adapter.populatedData(data)
+                }else{
+                    clEmptyFavorite.show()
+                    ibTrash.isEnabled = false
                 }
             })
 
