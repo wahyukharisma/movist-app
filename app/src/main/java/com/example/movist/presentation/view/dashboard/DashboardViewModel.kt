@@ -38,7 +38,7 @@ constructor(
     fun getPopularMovies(){
         viewModelScope.launch(Dispatchers.IO) {
             try{
-                repository.getPopularMovies(token)
+                repository.getPopular(token)
                 repository.loadData.postValue(false)
             }catch (throwable: Throwable){
                 repository.loadData.postValue(false)
@@ -56,7 +56,7 @@ constructor(
     fun getNowPlayingMovies(){
         viewModelScope.launch(Dispatchers.IO) {
             try{
-                repository.getNowPlayingMovies(token)
+                repository.getNowPlaying(token)
                 repository.loadData.postValue(false)
             }catch (throwable: Throwable){
                 repository.loadData.postValue(false)
@@ -74,7 +74,7 @@ constructor(
     fun getUpcomingMovies(){
         viewModelScope.launch(Dispatchers.IO) {
             try{
-                repository.getUpcomingMovies(token)
+                repository.getUpcoming(token)
                 repository.loadData.postValue(false)
             }catch (throwable: Throwable){
                 repository.loadData.postValue(false)
@@ -92,7 +92,7 @@ constructor(
     fun getTopRatedMovies(){
         viewModelScope.launch(Dispatchers.IO) {
             try{
-                repository.getTopRatedMovies(token)
+                repository.getTopRated(token)
                 repository.loadData.postValue(false)
             }catch (throwable: Throwable){
                 repository.loadData.postValue(false)

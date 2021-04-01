@@ -98,7 +98,7 @@ constructor(
     fun getDetail(id : Int){
         viewModelScope.launch(Dispatchers.IO) {
             try{
-                repository.getDetailMovie(token, id)
+                repository.getDetail(token, id)
                 repository.loadData.postValue(false)
             }catch (throwable: Throwable){
                 repository.loadData.postValue(false)
@@ -126,7 +126,7 @@ constructor(
     fun getReview(id: Int){
         viewModelScope.launch(Dispatchers.IO) {
             try{
-                repository.getReviewMovie(token, id)
+                repository.getReview(token, id)
                 repository.loadData.postValue(false)
             }catch (throwable: Throwable){
                 repository.loadData.postValue(false)

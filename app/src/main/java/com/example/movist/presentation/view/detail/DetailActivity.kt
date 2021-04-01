@@ -15,6 +15,7 @@ import com.example.movist.services.model.detail.Detail
 import com.example.movist.services.model.review.Result
 import com.example.movist.services.storage.entities.MovieFavorite
 import com.example.movist.util.*
+import com.example.movist.util.Constants.BASE_IMAGE_URL
 import com.google.android.flexbox.*
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,11 +23,6 @@ import timber.log.Timber
 
 @AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
-
-    companion object {
-        const val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
-    }
-
     private lateinit var _binding : ActivityDetailBinding
     private lateinit var _reviewAdapter: ReviewListAdapter
     private lateinit var _genreAdapter: GenreAdapter
@@ -86,6 +82,7 @@ class DetailActivity : AppCompatActivity() {
                 when(data){
                     is ResultOfNetwork.Success -> {
                         val size = data.value.results.size
+                        tvNoReview.show()
 
                         if(size > 0) tvNoReview.remove()
                         if(size <= 5) tvShowAllReview.remove()

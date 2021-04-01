@@ -5,7 +5,8 @@ import com.example.movist.services.storage.entities.MovieFavorite
 import javax.inject.Inject
 
 class MovieFavoriteRepository(
-    private val movieFavDao : MovieFavoriteDAO)
+    private val movieFavDao : MovieFavoriteDAO
+    )
 {
     suspend fun insertMovie(data : MovieFavorite) = movieFavDao.insertMovie(data)
     suspend fun getMovies() : List<MovieFavorite> = movieFavDao.getMovies()

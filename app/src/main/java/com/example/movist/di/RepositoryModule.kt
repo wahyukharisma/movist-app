@@ -2,6 +2,7 @@ package com.example.movist.di
 
 import com.example.movist.repository.MovieFavoriteRepository
 import com.example.movist.repository.MovieRepository
+import com.example.movist.repository.base.BaseMovieRepository
 import com.example.movist.services.network.MovieServices
 import com.example.movist.services.storage.dao.MovieFavoriteDAO
 import dagger.Module
