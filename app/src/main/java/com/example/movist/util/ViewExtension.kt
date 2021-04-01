@@ -20,12 +20,6 @@ fun View.remove(){
     this.visibility = View.GONE
 }
 
-/*
- * This extension used for hide view
- */
-fun View.hide(){
-    this.visibility = View.INVISIBLE
-}
 
 fun Activity.showMotionSuccess(title: String, subtitle: String){
     MotionToast.createColorToast(this,

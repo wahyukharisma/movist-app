@@ -7,9 +7,9 @@ import com.example.movist.repository.MovieRepository
 import com.example.movist.services.model.movie.Movie
 import com.example.movist.util.ResultOfNetwork
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
-import timber.log.Timber
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Named
@@ -36,7 +36,7 @@ constructor(
      *
      */
     fun getPopularMovies(){
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try{
                 repository.getPopularMovies(token)
                 repository.loadData.postValue(false)
@@ -54,7 +54,7 @@ constructor(
      *
      */
     fun getNowPlayingMovies(){
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try{
                 repository.getNowPlayingMovies(token)
                 repository.loadData.postValue(false)
@@ -72,7 +72,7 @@ constructor(
      *
      */
     fun getUpcomingMovies(){
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try{
                 repository.getUpcomingMovies(token)
                 repository.loadData.postValue(false)
@@ -90,7 +90,7 @@ constructor(
      *
      */
     fun getTopRatedMovies(){
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try{
                 repository.getTopRatedMovies(token)
                 repository.loadData.postValue(false)

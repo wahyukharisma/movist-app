@@ -36,4 +36,6 @@
     <string name="subtitle_empty_favorite">Keep up to date the latest info from your favorite movie</string>
     <string name="title_show_movie_list">Show Movie List</string>
     <string name="title_icon_delete_favorite_movie">Icon delete favorite movie</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

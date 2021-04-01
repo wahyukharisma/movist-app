@@ -1,8 +1,8 @@
 package com.example.movist.presentation.view.favorite
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.movist.databinding.ActivityFavoriteMoviesBinding
 import com.example.movist.presentation.adapter.MovieFavAdapter
 import com.example.movist.services.storage.entities.MovieFavorite
@@ -11,7 +11,6 @@ import com.example.movist.util.show
 import com.example.movist.util.showMotionSuccess
 import com.example.movist.util.showMotionWarning
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class FavoriteActivity : AppCompatActivity() {

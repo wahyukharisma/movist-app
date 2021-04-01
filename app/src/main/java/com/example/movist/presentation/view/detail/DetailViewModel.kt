@@ -11,9 +11,9 @@ import com.example.movist.services.model.review.Review
 import com.example.movist.services.storage.entities.MovieFavorite
 import com.example.movist.util.ResultOfNetwork
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
-import timber.log.Timber
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Named
@@ -49,7 +49,7 @@ constructor(
      * @param movieId id of movie
      */
     fun getMovieById(movieId : Int){
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try{
                 mutableMovie.postValue(repositoryFav.getMovieById(movieId))
             }catch (throwable : Throwable){ }
@@ -62,7 +62,7 @@ constructor(
      * @param data movie id
      */
     fun removeFavMovie(data : MovieFavorite){
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try{
                 repositoryFav.removeMovie(data)
                 mutableMovieRemoved.postValue(true)
@@ -78,7 +78,7 @@ constructor(
      * @param movie movie entities object
      */
     fun insertFavMovie(movie : MovieFavorite){
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try{
                 repositoryFav.insertMovie(movie)
                 mutableMovieSaved.postValue(true)
@@ -96,7 +96,7 @@ constructor(
      * @param id movie id
      */
     fun getDetail(id : Int){
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try{
                 repository.getDetailMovie(token, id)
                 repository.loadData.postValue(false)
@@ -124,7 +124,7 @@ constructor(
      * @param id : movie id
      */
     fun getReview(id: Int){
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try{
                 repository.getReviewMovie(token, id)
                 repository.loadData.postValue(false)

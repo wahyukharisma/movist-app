@@ -1,9 +1,9 @@
 package com.example.movist.presentation.view.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -85,13 +85,13 @@ class DetailActivity : AppCompatActivity() {
             _viewModel.review.observe(this@DetailActivity,{ data ->
                 when(data){
                     is ResultOfNetwork.Success -> {
-                        val size =data.value.results.size
+                        val size = data.value.results.size
 
                         if(size > 0) tvNoReview.remove()
                         if(size <= 5) tvShowAllReview.remove()
 
                         _reviewAdapter.removeAll()
-                        _reviewAdapter.populateDate(data.value.results)
+                        _reviewAdapter.populateData(data.value.results)
                     }
                     is ResultOfNetwork.Failure -> {
                         Timber.d(data.message ?: "Unknown Error")
@@ -100,8 +100,10 @@ class DetailActivity : AppCompatActivity() {
             })
 
             _viewModel.movie.observe(this@DetailActivity,{ data ->
-                if(data != null && data.movieId == _movie.movieId){
+                if(data != null){
                     setFavoriteState(true)
+                }else{
+                    setFavoriteState(false)
                 }
             })
 

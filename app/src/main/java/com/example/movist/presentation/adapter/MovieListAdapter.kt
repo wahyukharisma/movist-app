@@ -12,7 +12,6 @@ import com.example.movist.services.model.movie.Result
 import com.example.movist.util.DateFormatParse
 import com.example.movist.util.remove
 import com.example.movist.util.show
-import timber.log.Timber
 
 
 class MovieListAdapter(var onItemClickListener: OnMovieItemClickListener)
@@ -43,11 +42,6 @@ class MovieListAdapter(var onItemClickListener: OnMovieItemClickListener)
 
     fun removeAll(){
         this.items.clear()
-        notifyDataSetChanged()
-    }
-
-    fun removeSingle(position: Int){
-        this.items.removeAt(position)
         notifyDataSetChanged()
     }
 
