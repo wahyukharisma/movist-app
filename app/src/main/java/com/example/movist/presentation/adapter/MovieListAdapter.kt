@@ -9,18 +9,14 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.movist.R
 import com.example.movist.databinding.ItemMovieBinding
 import com.example.movist.services.model.movie.Result
+import com.example.movist.util.Constants.BASE_IMAGE_URL
 import com.example.movist.util.DateFormatParse
 import com.example.movist.util.remove
 import com.example.movist.util.show
-import timber.log.Timber
 
 
 class MovieListAdapter(var onItemClickListener: OnMovieItemClickListener)
     : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
-
-    companion object {
-        const val BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500"
-    }
 
     private val items : MutableList<Result> = ArrayList()
 
@@ -43,11 +39,6 @@ class MovieListAdapter(var onItemClickListener: OnMovieItemClickListener)
 
     fun removeAll(){
         this.items.clear()
-        notifyDataSetChanged()
-    }
-
-    fun removeSingle(position: Int){
-        this.items.removeAt(position)
         notifyDataSetChanged()
     }
 

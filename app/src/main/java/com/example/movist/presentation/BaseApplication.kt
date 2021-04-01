@@ -2,7 +2,7 @@ package com.example.movist.presentation
 
 import android.app.Application
 import android.content.Context
-import androidx.viewbinding.BuildConfig
+import androidx.appcompat.app.AppCompatDelegate
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
@@ -17,7 +17,7 @@ class BaseApplication : Application() {
         super.onCreate()
 
         appContext = applicationContext
-
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         Timber.plant(Timber.DebugTree())
     }
 }

@@ -15,8 +15,13 @@ class ReviewListAdapter(private val onReviewClickListener : OnReviewClickListene
     private val items : MutableList<Result> = ArrayList()
     private val limit = 5
 
-    fun populateDate(data : List<Result>){
+    fun populateData(data : List<Result>){
         this.items.addAll(data)
+        notifyDataSetChanged()
+    }
+
+    fun removeAll(){
+        this.items.clear()
         notifyDataSetChanged()
     }
 
